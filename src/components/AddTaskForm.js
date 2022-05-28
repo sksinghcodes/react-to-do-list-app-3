@@ -12,22 +12,22 @@ class AddTaskForm extends Component {
     }
 
     handleTaskSubmit(){
-        const task = this.state.inputValue.trim();
+        const task = this.props.newTaskInput.trim();
         if(task) {
             this.props.dispatch(addTask(task));
         }
+        this.props.dispatch(updateNewTaskInput(""));
     }
 
     render() {
         const {newTaskInput, dispatch} = this.props;
-
         return (
             <div className="add_task_form">
                 <input 
                     type="text" 
                     value={newTaskInput}
                     onInput={e => dispatch(updateNewTaskInput(e.target.value))}
-                    onKeyPress={e => { if( e.key === "Enter" ) this.handleTaskSubmit(); }}
+                    onKeyPress={e => {if( e.key === "Enter" ) this.handleTaskSubmit();}}
                     placeholder="Type here..."
                 />
                 <button
@@ -39,7 +39,7 @@ class AddTaskForm extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return state;
 }
 
