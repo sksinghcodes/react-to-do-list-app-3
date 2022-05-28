@@ -1,4 +1,4 @@
-# Using React and Redux (old pattern)
+# React to do list app (redux old pattern)
 
 I am making just to do list apps using different techniques.
 
